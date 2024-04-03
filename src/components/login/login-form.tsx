@@ -92,7 +92,7 @@ export const LoginForm = () => {
             'text-blue-400',
           )}
         >
-          Don't have an account? Sign up!
+          Don&apos;t have an account? Sign up!
           <ArrowRight className='h-4 w-4' />
         </Link>
       </div>
@@ -153,7 +153,7 @@ export const LoginForm = () => {
             <span className='w-full border-t' />
           </div>
           <div className='relative flex justify-center text-xs uppercase'>
-            <span className='bg-background text-muted-foreground px-2'>or</span>
+            <span className='bg-background px-2 text-muted-foreground'>or</span>
           </div>
         </div>
         {isSeller ? (

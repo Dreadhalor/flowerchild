@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e .env nodemon",
-    "generate:types": "dotenv -e .env payload generate:types",
-    "build": "next build",
-    "start": "next start",
+    "dev": "dotenv -e .env.development nodemon",
+    "generate:types": "dotenv -e .env.development payload generate:types",
+    "build:payload": "dotenv -e .env.production payload build",
+    "build:next": "next build",
+    "build": "pnpm run build:payload && pnpm run build:next",
+    "start": "dotenv -e .env.production -- ts-node --project tsconfig.server.json src/server.ts",
     "lint": "next lint"
   },
   "dependencies": {

@@ -39,17 +39,27 @@ const start = async () => {
 
   app.use(
     '/api/trpc',
-    trpcExpress.createExpressMiddleware({ router: appRouter, createContext }),
+    trpcExpress.createExpressMiddleware({
+      router: appRouter,
+      createContext,
+    }),
   );
 
-  app.use((req, res) => nextHandler(req, res));
+  if (process.env.NODE_ENV === 'production') {
+    // Serve the built Next.js app in production
+    const nextStaticDir = './.next/server/pages';
+    app.use(express.static(nextStaticDir));
+    app.get('*', (req, res) => nextHandler(req, res));
+  } else {
+    // Use Next.js development server in development
+    app.use((req, res) => nextHandler(req, res));
+  }
 
-  nextApp.prepare().then(() => {
-    payload?.logger.info(`Starting server on port ${port}`);
+  await nextApp.prepare();
+  payload?.logger.info(`Starting server on port ${port}`);
 
-    app.listen(port, () => {
-      payload?.logger.info(`Server started on http://localhost:${port}`);
-    });
+  app.listen(port, () => {
+    payload?.logger.info(`Server started on http://localhost:${port}`);
   });
 };
 

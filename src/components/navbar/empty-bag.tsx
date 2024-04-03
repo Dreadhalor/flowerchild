@@ -9,7 +9,7 @@ export const EmptyBag = () => {
   return (
     <div className='flex h-full flex-col items-center justify-center space-y-1'>
       <div
-        className='text-muted-foreground relative mb-4 h-80 w-80'
+        className='relative mb-4 h-80 w-80 text-muted-foreground'
         aria-hidden
       >
         <Image src='/empty-shopping-bag.png' fill alt='empty shopping cart' />
@@ -26,7 +26,7 @@ export const EmptyBag = () => {
             'text-sm text-gray-500',
           )}
         >
-          But don't fret, great fashion is just a click away!
+          But don&apos;t fret, great fashion is just a click away!
         </Link>
       </SheetTrigger>
     </div>
