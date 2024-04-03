@@ -1,5 +1,3 @@
-import dotenv from 'dotenv';
-import path from 'path';
 import type { InitOptions } from 'payload/config';
 import payload, { Payload } from 'payload';
 import nodemailer from 'nodemailer';
@@ -8,10 +6,6 @@ type PayloadCache = {
   client: Payload | null;
   promise: Promise<Payload> | null;
 };
-
-dotenv.config({
-  path: path.resolve(__dirname, '../.env'),
-});
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.resend.com',

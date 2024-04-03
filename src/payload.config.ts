@@ -4,7 +4,6 @@ import { slateEditor } from '@payloadcms/richtext-slate';
 import path from 'path';
 import { Users } from './collections/users';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
-import dotenv from 'dotenv';
 import { Products } from './collections/products';
 import { Media } from './collections/media';
 import { Orders } from './collections/orders';
@@ -12,10 +11,6 @@ import { Categories } from './collections/categories';
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 import { OrderItems } from './collections/order-items';
-
-dotenv.config({
-  path: path.resolve(__dirname, '../.env'),
-});
 
 const adapter = s3Adapter({
   config: {
