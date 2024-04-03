@@ -30,12 +30,12 @@ export const Cart = () => {
   return (
     <Sheet>
       <SheetTrigger
-        className={cn('group', buttonVariants({ variant: 'ghost' }))}
+        className={cn('group', buttonVariants({ variant: 'navbar' }))}
       >
         <HiOutlineShoppingBag aria-hidden className='h-6 w-6 flex-shrink-0' />
         <span className='ml-2 text-sm font-medium'>{itemCount}</span>
       </SheetTrigger>
-      <SheetContent className='bg-primary flex w-full flex-col pr-0 sm:max-w-lg'>
+      <SheetContent className='flex w-full flex-col bg-primary pr-0 sm:max-w-lg'>
         <SheetHeader className='space-y-2.5 pr-6'>
           <SheetTitle>Bag ({itemCount})</SheetTitle>
         </SheetHeader>

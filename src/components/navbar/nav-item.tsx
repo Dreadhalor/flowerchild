@@ -4,8 +4,9 @@ import {
   NavigationMenuContent,
 } from '@flowerchild/components/ui/navigation-menu';
 import { NavItemDropdown } from './nav-item-dropdown';
-import { Button } from '../ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import { Product } from '@flowerchild/payload-types';
+import Link from 'next/link';
 
 type Props = {
   categoryLabel: string;
@@ -26,7 +27,12 @@ export const NavItem = ({ categoryLabel }: Props) => {
   return (
     <>
       <NavigationMenuTrigger asChild>
-        <Button variant='navbar'>{categoryLabel}</Button>
+        <Link
+          href={`/products?category=${categoryLabel.toLowerCase()}`}
+          className={buttonVariants({ variant: 'navbar' })}
+        >
+          {categoryLabel}
+        </Link>
       </NavigationMenuTrigger>
       <NavigationMenuContent className='animate-in fade-in-10 slide-in-from-top-5'>
         <NavItemDropdown

@@ -19,7 +19,7 @@ export const Navbar = async () => {
 
   return (
     <NavigationMenu
-      className='bg-primary sticky inset-x-0 top-0 z-50 h-16 max-h-16 max-w-none border-b border-gray-200 shadow-md'
+      className='sticky inset-x-0 top-0 z-50 h-16 max-h-16 max-w-none border-b border-gray-200 bg-primary shadow-md'
       viewportClassnames='mt-0 border-0 bg-primary rounded-none'
     >
       <header className='relative h-full w-full'>
@@ -72,7 +72,7 @@ export const Navbar = async () => {
                   </>
                 )}
 
-                <div className='ml-4 flow-root lg:ml-6'>
+                <div className='ml-4 flow-root h-full lg:ml-6'>
                   <Cart />
                 </div>
               </div>
