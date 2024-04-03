@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "dotenvx run --env-file=.env -- nodemon",
     "generate:types": "dotenvx run --env-file=.env -- payload generate:types",
-    "build:payload": "dotenvx run --env-file=.env.production -- payload build",
+    "build:payload": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- payload build",
     "build:next": "next build",
     "build": "pnpm run build:payload && pnpm run build:next",
     "start": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- ts-node --project tsconfig.server.json src/server.ts",
