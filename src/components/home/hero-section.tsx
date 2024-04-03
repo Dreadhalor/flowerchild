@@ -10,7 +10,7 @@ export const HeroSection = () => {
           Discover Your Style
         </h1>
         <p className='mb-8 text-xl text-gray-100'>
-          Shop the latest fashion trends and styles at FlowerChild.
+          Shop the latest fashion trends and styles at FLOWERCHILD.
         </p>
         <Link
           href='/products'

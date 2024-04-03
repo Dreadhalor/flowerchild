@@ -7,7 +7,7 @@ import { formatPrice } from '@flowerchild/lib/utils';
 import { Shield } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from './breadcrumbs';
-import { Category } from '@flowerchild/payload-types';
+import { Category, Product } from '@flowerchild/payload-types';
 import { ProductFullDisplay } from '@flowerchild/components/product-full-display';
 
 type Props = {
@@ -33,21 +33,16 @@ const Page = async ({ params: { productId } }: Props) => {
     },
   });
 
-  const [product] = products;
+  const [product] = products as any as Product[];
 
   if (!product) return notFound();
 
   const category = product.category as Category;
   const label = category.label;
-  const imageUrls =
-    product?.images.map((image) => {
-      // @ts-ignore
-      return image.image?.url as string;
-    }) || [];
 
   return (
-    <MaxWidthWrapper className='bg-white'>
-      <div className='bg-white'>
+    <>
+      <MaxWidthWrapper className='bg-white'>
         <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8'>
           <div className='lg:max-w-lg lg:self-end'>
             <Breadcrumbs />
@@ -64,13 +59,13 @@ const Page = async ({ params: { productId } }: Props) => {
                   {formatPrice(product.price)}
                 </p>
 
-                <div className='text-muted-foreground ml-4 border-l border-gray-300 pl-4'>
+                <div className='ml-4 border-l border-gray-300 pl-4 text-muted-foreground'>
                   {label}
                 </div>
               </div>
 
               <div className='mt-4 space-y-6'>
-                <p className='text-muted-foreground text-base'>
+                <p className='text-base text-muted-foreground'>
                   {product.description}
                 </p>
               </div>
@@ -100,15 +95,16 @@ const Page = async ({ params: { productId } }: Props) => {
             </div>
           </div>
         </div>
-      </div>
-
-      <ProductReel
-        href='/products'
-        query={{ category: category.id, limit: 4 }}
-        title={`Similar ${label}`}
-        subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
-      />
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+      <MaxWidthWrapper>
+        <ProductReel
+          href='/products'
+          query={{ category: category.id, limit: 4 }}
+          title={`Similar ${label}`}
+          subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
+        />
+      </MaxWidthWrapper>
+    </>
   );
 };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@flowerchild/components/ui/button';
 import { formatPrice } from '@flowerchild/lib/utils';
 import { Category } from '@flowerchild/payload-types';

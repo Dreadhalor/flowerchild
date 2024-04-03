@@ -19,7 +19,7 @@ export const VerifyEmail = ({ token }: Props) => {
       <div className='flex flex-col items-center gap-2'>
         <Loader2 className='h-8 w-8 animate-spin text-zinc-300' />
         <h3 className='text-xl font-semibold'>Verifying...</h3>
-        <p className='text-muted-foreground text-center text-sm'>
+        <p className='text-center text-sm text-muted-foreground'>
           This won&apos;t take long.
         </p>
       </div>
@@ -31,7 +31,7 @@ export const VerifyEmail = ({ token }: Props) => {
       <div className='flex flex-col items-center gap-2'>
         <XCircle className='h-8 w-8 text-red-600' />
         <h3 className='text-xl font-semibold'>Oh no! There was a problem...</h3>
-        <p className='text-muted-foreground text-center text-sm'>
+        <p className='text-center text-sm text-muted-foreground'>
           This token is not valid or might be expired. Please try again.
         </p>
       </div>
@@ -41,11 +41,11 @@ export const VerifyEmail = ({ token }: Props) => {
   if (data?.success) {
     return (
       <div className='flex h-full flex-col items-center justify-center'>
-        <div className='text-muted-foreground relative mb-4 h-60 w-60'>
-          <Image alt='the email was sent' src='/hippo-email-sent.png' fill />
+        <div className='relative mb-4 h-60 w-60 text-muted-foreground'>
+          <Image alt='the email was sent' src='/email-sent.svg' fill />
         </div>
-        <h3 className='text-2xl font-semibold'>You're all set!</h3>
-        <p className='text-muted-foreground mt-1 text-center'>
+        <h3 className='text-2xl font-semibold'>You&apos;re all set!</h3>
+        <p className='mt-1 text-center text-muted-foreground'>
           Thank you for verifying your email.
         </p>
         <Link href='/login' className={buttonVariants({ className: 'mt-4' })}>

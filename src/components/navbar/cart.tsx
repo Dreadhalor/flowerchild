@@ -69,7 +69,10 @@ export const Cart = () => {
                 <SheetTrigger asChild>
                   <Link
                     href='/cart'
-                    className={buttonVariants({ className: 'w-full' })}
+                    className={buttonVariants({
+                      variant: 'outline',
+                      className: 'w-full',
+                    })}
                   >
                     Continue to Checkout
                   </Link>

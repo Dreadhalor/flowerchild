@@ -1,6 +1,5 @@
 import { MaxWidthWrapper } from '@flowerchild/components/max-width-wrapper';
 import { ProductReel } from '@flowerchild/components/product-reel';
-import { buttonVariants } from '@flowerchild/components/ui/button';
 import { getPayloadClient } from '@flowerchild/get-payload';
 import { cn } from '@flowerchild/lib/utils';
 import { Category } from '@flowerchild/payload-types';
@@ -51,13 +50,15 @@ const Page = async ({ searchParams }: Props) => {
 
   if (categoryValue) {
     category =
-      (categories as Category[]).find((c) => c.value === categoryValue) || null;
+      (categories as any as Category[]).find(
+        (c) => c.value === categoryValue,
+      ) || null;
   }
 
   if (categoryValue && !category) return notFound();
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className='bg-white'>
       <h1 className='mt-8 text-2xl font-bold text-gray-900 sm:text-3xl'>
         {category?.label || 'New Arrivals'}
       </h1>

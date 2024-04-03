@@ -26,7 +26,7 @@ export const Navbar = async () => {
         <MaxWidthWrapper>
           <div className='flex h-16 items-center'>
             <MobileNav />
-            <div className='ml-4 mr-auto flex lg:ml-0'>
+            <div className='ml-4 flex lg:ml-0'>
               <Link href='/'>
                 <Logo className='h-10 w-10' />
               </Link>
@@ -41,7 +41,6 @@ export const Navbar = async () => {
               <NavigationMenuList className='h-full'>
                 <NavItems />
               </NavigationMenuList>
-              {/* <NavItems2 /> */}
             </div>
             <div className='ml-auto flex h-full items-center'>
               <div

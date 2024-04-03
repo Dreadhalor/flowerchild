@@ -1,13 +1,12 @@
-'use client';
-
-import { useCart } from '@flowerchild/hooks/use-cart';
 import { cn } from '@flowerchild/lib/utils';
-import { EmptyBag } from './empty-bag';
-import { CartItem } from './cart-item';
 import { OrderSummary } from './order-summary';
+import { CartItemsSummary } from './cart-items-summary';
+import { cookies } from 'next/headers';
+import { getServerSideUser } from '@/src/lib/payload-utils';
 
-const Page = () => {
-  const { items } = useCart();
+const Page = async () => {
+  const nextCookies = cookies();
+  const { user } = await getServerSideUser(nextCookies);
 
   return (
     <div className='bg-white'>
@@ -29,30 +28,9 @@ const Page = () => {
             'xl:gap-x-16',
           )}
         >
-          <div
-            className={cn(
-              'lg:col-span-7',
-              items.length === 0 &&
-                'rounded-lg border-2 border-dashed border-zinc-200 p-12',
-            )}
-          >
-            <h2 className='sr-only'>Items in your shopping cart</h2>
+          <CartItemsSummary />
 
-            {items.length === 0 && <EmptyBag />}
-
-            <ul
-              className={cn(
-                items.length > 0 &&
-                  'divide-y divide-gray-200 border-y border-gray-200',
-              )}
-            >
-              {items.map((item) => (
-                <CartItem key={item.product.id} item={item} />
-              ))}
-            </ul>
-          </div>
-
-          <OrderSummary />
+          <OrderSummary user={user} />
         </div>
       </div>
     </div>

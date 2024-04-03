@@ -9,7 +9,7 @@ const VerifyEmailPage = ({ searchParams }: Props) => {
   const userEmail = searchParams.to;
 
   return (
-    <div className='container relative flex flex-col items-center justify-center pt-20 lg:px-0'>
+    <div className='container relative flex flex-1 flex-col items-center justify-center lg:px-0'>
       <div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
         {token && typeof token === 'string' ? (
           <div className='grid gap-6'>
@@ -17,21 +17,21 @@ const VerifyEmailPage = ({ searchParams }: Props) => {
           </div>
         ) : (
           <div className='flex h-full flex-col items-center justify-center space-y-1'>
-            <div className='text-muted-foreground relative mb-4 h-60 w-60'>
+            <div className='relative mb-4 h-60 w-60 text-muted-foreground'>
               <Image
                 alt='FLOWERCHILD email sent image'
-                src='/hippo-email-sent.png'
+                src='/email-sent.svg'
                 fill
               />
             </div>
             <h3 className='text-2xl font-semibold'>Check your email!</h3>
             {userEmail && typeof userEmail === 'string' ? (
-              <p className='text-muted-foreground text-center'>
+              <p className='text-center text-muted-foreground'>
                 Your verification link is on its way to{' '}
                 <span className='font-semibold'>{userEmail}</span>!
               </p>
             ) : (
-              <p className='text-muted-foreground text-center'>
+              <p className='text-center text-muted-foreground'>
                 Your verification link is on its way!
               </p>
             )}

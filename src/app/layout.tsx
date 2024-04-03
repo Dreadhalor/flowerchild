@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='bg-primary h-full p-0'>
+    <html lang='en' className='h-full bg-primary p-0'>
       <body
         className={cn(
           'relative h-full p-0 font-sans antialiased',
@@ -27,7 +27,7 @@ export default function RootLayout({
         <main className='relative flex min-h-full flex-col'>
           <Providers>
             <Navbar />
-            <div className='flex-1 flex-grow'>{children}</div>
+            <div className='flex flex-1 flex-grow flex-col'>{children}</div>
             <Footer />
           </Providers>
         </main>
