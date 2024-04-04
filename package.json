@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenvx run --env-file=.env -- nodemon",
-    "generate:types": "dotenvx run --env-file=.env -- payload generate:types",
+    "dev": "DOTENV_KEY=$DOTENV_KEY_DEVELOPMENT dotenvx run -- nodemon",
+    "generate:types": "DOTENV_KEY=$DOTENV_KEY_DEVELOPMENT dotenvx run -- payload generate:types",
     "build:payload": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- payload build",
     "build:next": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- next build",
     "build": "pnpm run build:payload && pnpm run build:next",
