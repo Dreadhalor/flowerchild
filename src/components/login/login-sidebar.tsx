@@ -15,7 +15,7 @@ const SidebarItem = ({
   return (
     <Link
       className={cn(
-        'hover:bg-primary/60 relative flex h-[50px] items-center border-l-4 border-transparent pl-14',
+        'relative flex h-[50px] items-center border-l-4 border-transparent pl-14 hover:bg-primary/60',
         pathname === href && 'border-accent bg-primary/60',
       )}
       href={href}
@@ -27,7 +27,6 @@ const SidebarItem = ({
 
 export const LoginSidebar = () => {
   const pathname = usePathname();
-  console.log('pathname', pathname);
   return (
     <div className='flex h-full justify-end'>
       <div className='flex w-[250px] flex-col pt-32'>
