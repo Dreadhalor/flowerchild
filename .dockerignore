@@ -26,3 +26,6 @@ README.md
 .vercel
 .next
 .vscode
+
+# lockfile I guess
+pnpm-lock.yaml

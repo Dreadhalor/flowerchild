@@ -2,7 +2,7 @@ import { cn } from '@flowerchild/lib/utils';
 import { OrderSummary } from './order-summary';
 import { CartItemsSummary } from './cart-items-summary';
 import { cookies } from 'next/headers';
-import { getServerSideUser } from '@/src/lib/payload-utils';
+import { getServerSideUser } from '@flowerchild/lib/payload-utils';
 
 const Page = async () => {
   const nextCookies = cookies();

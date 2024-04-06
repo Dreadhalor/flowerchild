@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { EmptyBag } from './empty-bag';
-import { cn } from '@/src/lib/utils';
-import { useCart } from '@/src/hooks/use-cart';
+import { cn } from '@flowerchild/lib/utils';
+import { useCart } from '@flowerchild/hooks/use-cart';
 import { CartItem } from './cart-item';
 
 export const CartItemsSummary = () => {

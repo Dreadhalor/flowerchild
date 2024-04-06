@@ -121,7 +121,7 @@ export interface Order {
   id: string;
   _isPaid: boolean;
   user: string | User;
-  items: (string | OrderItem)[];
+  items?: (string | OrderItem)[] | null;
   updatedAt: string;
   createdAt: string;
 }

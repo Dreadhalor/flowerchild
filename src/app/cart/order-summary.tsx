@@ -1,6 +1,6 @@
 'use client';
 
-import { User } from '@/src/payload-types';
+import { User } from '@flowerchild/payload-types';
 import { Button } from '@flowerchild/components/ui/button';
 import { TRANSACTION_FEE } from '@flowerchild/config';
 import { useCart } from '@flowerchild/hooks/use-cart';

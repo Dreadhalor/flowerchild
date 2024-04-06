@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "DOTENV_KEY=$DOTENV_KEY_DEVELOPMENT dotenvx run -- nodemon",
-    "generate:types": "DOTENV_KEY=$DOTENV_KEY_DEVELOPMENT dotenvx run -- payload generate:types",
-    "build:payload": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- payload build",
+    "dev": "nodemon",
+    "generate:types": "payload generate:types",
+    "build:payload": "payload build",
     "build:next": "next build",
-    "build": "pnpm run build:payload && pnpm run build:next",
-    "start": "DOTENV_KEY=$DOTENV_KEY_PRODUCTION dotenvx run -- ts-node --project tsconfig.server.json src/server.ts",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build": "pnpm run build:payload && pnpm run build:next && pnpm run build:server",
+    "start": "dotenvx run --env-file=.env.production -- node dist/server.js",
     "encrypt": "dotenvx encrypt",
     "decrypt": "dotenvx decrypt",
     "lint": "next lint"

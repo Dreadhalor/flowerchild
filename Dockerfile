@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 # Install pnpm.
 RUN npm install -g pnpm@${PNPM_VERSION}
 
-# Copy all local files
+# Copy all local files (including .env.keys)
 COPY . .
 
 # Install dependencies needed to install aws-crt. Bleh.
@@ -20,11 +20,16 @@ RUN apk add --no-cache build-base gcc g++ make python3 cmake
 # Install dependencies.
 RUN pnpm i
 
+# Decrypt keys
+RUN pnpm decrypt
+
 # Build the app.
-RUN pnpm build
+RUN pnpm build:payload
+RUN pnpm build:next
+RUN pnpm build:server
 
 # Expose the port.
 EXPOSE 3001
 
-# # Start the portfolio backend.
+# Start the server.
 ENTRYPOINT ["pnpm", "start"]
